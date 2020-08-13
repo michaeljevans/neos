@@ -1,5 +1,6 @@
 require 'faraday'
 require 'figaro'
+require 'json'
 require 'pry'
 # Load ENV vars via Figaro
 Figaro.application = Figaro::Application.new(environment: 'production', path: File.expand_path('../config/application.yml', __FILE__))
