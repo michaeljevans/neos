@@ -20,9 +20,10 @@ end
 header = "| #{ column_data.map { |_,col| col[:label].ljust(col[:width]) }.join(' | ') } |"
 divider = "+-#{column_data.map { |_,col| "-"*col[:width] }.join('-+-') }-+"
 
-def format_row_data(row_data, column_info)
-  require "pry"; binding.pry
-  row = row_data.keys.map { |key| row_data[key].ljust(column_info[key][:width]) }.join(' | ')
+def format_row_data(asteroid, column_info)
+  row = [asteroid.name.ljust(column_info[:name][:width]),
+         asteroid.diameter.ljust(column_info[:diameter][:width]),
+         asteroid.miss_distance.ljust(column_info[:miss_distance][:width])].join(' | ')
   puts "| #{row} |"
 end
 
